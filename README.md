@@ -28,7 +28,7 @@ The project includes the following services:
 
 Below is the logical architecture of  application:
 
-![Application Architecture](assets/lab-assignment-2.png)
+![Application Architecture](assets/lab-assignment-2-n.png)
 
 ## Deployment on Azure Kubernetes Service (AKS)
 
