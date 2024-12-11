@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: makeline-service
+  labels:
+    app: makeline-service
+spec:
+  replicas: 3  # Number of replicas (adjust as needed)
+  selector:
+    matchLabels:
+      app: makeline-service
+  template:
+    metadata:
+      labels:
+        app: makeline-service
+    spec:
+      containers:
+      - name: makeline-service
+        image: msalmannaqvi/makeline-service:latest
+        ports:
+        - containerPort: 3001  # Exposed port from the inspect result
+        env:
+        - name: APP_VERSION
+          value: "0.1.0"  # Environment variable from the inspect result
+        resources:
+          limits:
+            memory: "256Mi"  # Adjust resource limits as needed
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+        workingDir: "/"  # Working directory from the inspect result
+        command: ["./main"]  # Command to execute the service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: makeline-service
+  labels:
+    app: makeline-service
+spec:
+  selector:
+    app: makeline-service
+  ports:
+  - protocol: TCP
+    port: 3001  # Port to expose externally
+    targetPort: 3001  # Target port inside the container
+  type: ClusterIP  # Change to LoadBalancer if external access is required
