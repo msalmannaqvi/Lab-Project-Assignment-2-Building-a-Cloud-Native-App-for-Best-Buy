@@ -24,6 +24,30 @@ The project includes the following services:
 | `virtual-customer` | Service for simulating customer order placement (Rust).                 | [virtual-customer-L8](https://github.com/msalmannaqvi/virtual-customer-L8)                    |
 | `virtual-worker`   | Service for simulating order processing and completion (Rust).          | [virtual-worker-L8](https://github.com/msalmannaqvi/virtual-worker-L8)                        |
 
+The architecture for the "Best Buy Cloud-Native Application - Lab Project Assignment 2" application is built on a **microservices** approach, where each service performs specific tasks within the system. The key components are:
+
+1. **Store Front Microservice**  
+   This is the customer-facing interface that allows users to browse products, view details, and place orders.
+
+2. **Store Admin**  
+   The admin interface used by employees to manage store operations, including product management and order fulfillment.
+
+3. **Order Service**  
+   Handles the processing and management of customer orders, interacting with other services for order completion.
+
+4. **Product Service**  
+   Manages product data, including creation, updating, and retrieval of product details.
+
+5. **Make-line Service**  
+   A service that processes and fulfills orders by integrating with the order and product services.
+
+6. **AI Service**  
+   This service leverages external AI models like **ChatGPT** for generating textual content (such as product descriptions) and **DALL-E** for image generation, enhancing the customer experience with dynamic content.
+
+The services communicate asynchronously through **Azure Service Queue** for message handling, allowing decoupled, event-driven interactions between components. The **Order Database** is managed using **MongoDB**, which stores all the order data and product details.
+
+Furthermore, the **AI Service** integrates with the **Azure OpenAI API** to interact with models such as **ChatGPT** and **DALL-E**, generating content like descriptions and images based on store products.
+
 ### Application Diagram
 
 Below is the logical architecture of  application:
