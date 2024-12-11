@@ -53,6 +53,21 @@ Below is the logical architecture of  application:
 
 ![Application Architecture](assets/lab-assignment-2-n.png)
 
+# Docker Images Table
+
+This table lists all the Docker images used in the project, including their names and links to their Docker Hub repositories.
+
+| **Service**     | **Docker Image Link**                      |
+|-----------------|--------------------------------------------|
+| Store-Front     | [msalmannaqvi/store-front](https://hub.docker.com/r/msalmannaqvi/store-front) |
+| Store-Admin     | [msalmannaqvi/store-front](https://hub.docker.com/r/msalmannaqvi/store-front) |
+| Order-Service   | [msalmannaqvi/order-service](https://hub.docker.com/r/msalmannaqvi/order-service) |
+| Product-Service | [msalmannaqvi/product-service](https://hub.docker.com/r/msalmannaqvi/product-service) |
+| Make-Line-Service | [msalmannaqvi/make-line-service](https://hub.docker.com/r/msalmannaqvi/make-line-service) |
+| AI-Service      | [msalmannaqvi/ai-service](https://hub.docker.com/r/msalmannaqvi/ai-service) |
+
+
+
 ## Deployment on Azure Kubernetes Service (AKS)
 
 To deploy this application to an AKS cluster, use the Kubernetes YAML files provided in the [Deployment Files](./Deployment%20Files/) directory. Follow these steps:
