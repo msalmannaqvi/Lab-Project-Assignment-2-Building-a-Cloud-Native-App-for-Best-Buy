@@ -87,6 +87,10 @@ Order-Service Docker using Azure Service Bus so will require to pass host name a
 will be run using 
 docker run -e ORDER_QUEUE_HOSTNAME=<your_hostname> -e ORDER_QUEUE_PASSWORD=<your_password> -p 8080:8080 yourusername/store-admin
 
+# Running AI-Service Docker
+docker run --env-file .env
+
+
 
 ## Deployment on Azure Kubernetes Service (AKS)
 
