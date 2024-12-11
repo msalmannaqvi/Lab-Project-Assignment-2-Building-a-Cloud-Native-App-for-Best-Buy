@@ -66,6 +66,26 @@ This table lists all the Docker images used in the project, including their name
 | Make-Line-Service | [msalmannaqvi/make-line-service](https://hub.docker.com/r/msalmannaqvi/make-line-service) |
 | AI-Service      | [msalmannaqvi/ai-service](https://hub.docker.com/r/msalmannaqvi/ai-service) |
 
+# Limitations for Azure Queue require to run with following and will run this as well 
+
+az group create --name <resource-group-name> --location <location>
+az servicebus namespace create --name <namespace-name> --resource-group <resource-group-name>
+az servicebus queue create --name orders --namespace-name <namespace-name> --resource-group <resource-group-name>
+PRINCIPALID=$(az ad signed-in-user show --query objectId -o tsv)
+if this commnad shows empty it means user account does not have required permission
+SERVICEBUSBID=$(az servicebus namespace show --name <namespace-name> --resource-group <resource-group-name> --query id -o tsv)
+
+az role assignment create --role "Azure Service Bus Data Sender" --assignee $PRINCIPALID --scope $SERVICEBUSBID
+az servicebus queue authorization-rule create --name sender --namespace-name <namespace-name> --resource-group <resource-group-name> --queue-name orders --rights Send
+
+HOSTNAME=$(az servicebus namespace show --name <namespace-name> --resource-group <resource-group-name> --query serviceBusEndpoint -o tsv | sed 's/https:\/\///;s/:443\///')
+
+PASSWORD=$(az servicebus queue authorization-rule keys list --namespace-name <namespace-name> --resource-group <resource-group-name> --queue-name orders --name sender --query primaryKey -o tsv)
+
+HOSTNAME and PASSWORD will be passed while running the docker 
+Order-Service Docker using Azure Service Bus so will require to pass host name and password according to user detail
+will be run using 
+docker run -e ORDER_QUEUE_HOSTNAME=<your_hostname> -e ORDER_QUEUE_PASSWORD=<your_password> -p 8080:8080 yourusername/store-admin
 
 
 ## Deployment on Azure Kubernetes Service (AKS)
