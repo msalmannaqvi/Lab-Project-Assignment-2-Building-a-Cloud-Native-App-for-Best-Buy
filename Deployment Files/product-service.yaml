@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service-deployment
+  labels:
+    app: product-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+      - name: product-service
+        image: msalmannaqvi/product-service:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_VERSION
+          value: "0.1.0"
+        command: ["/app/product-service"]
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service-service
+  labels:
+    app: product-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: product-service
