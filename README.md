@@ -19,7 +19,6 @@ The project includes the following services:
 | `product-service`  | Microservice for product CRUD operations (Rust).                        | [product-service-L8](https://github.com/msalmannaqvi/product-service-L8)                      |
 | `makeline-service` | Microservice for processing and completing orders from the queue (Go).   | [makeline-service-L8](https://github.com/msalmannaqvi/makeline-service-L8)                    |
 | `ai-service`       | Optional service for generating text and images using OpenAI (Python).  | [ai-service-L8](https://github.com/msalmannaqvi/ai-service-L8)                                |
-| `rabbitmq`         | RabbitMQ message broker for handling the order queue.                   | [rabbitmq](https://github.com/msalmannaqvi/rabbitmq)                                          |
 | `mongodb`          | MongoDB instance for persistent storage.                                | [mongodb](https://github.com/msalmannaqvi/mongodb)                                            |
 | `virtual-customer` | Service for simulating customer order placement (Rust).                 | [virtual-customer-L8](https://github.com/msalmannaqvi/virtual-customer-L8)                    |
 | `virtual-worker`   | Service for simulating order processing and completion (Rust).          | [virtual-worker-L8](https://github.com/msalmannaqvi/virtual-worker-L8)                        |
