@@ -26,7 +26,7 @@ The project includes the following services:
 
 ### Application Diagram
 
-Below is the logical architecture of the application:
+Below is the logical architecture of  application:
 
 ![Application Architecture](assets/lab-assignment-2.png)
 
