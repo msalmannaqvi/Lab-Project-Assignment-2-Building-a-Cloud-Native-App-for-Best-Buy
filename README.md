@@ -28,7 +28,7 @@ The project includes the following services:
 
 Below is the logical architecture of the application:
 
-![Application Architecture](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
+![Application Architecture](assets/lab-assignment-2.png)
 
 ## Deployment on Azure Kubernetes Service (AKS)
 
