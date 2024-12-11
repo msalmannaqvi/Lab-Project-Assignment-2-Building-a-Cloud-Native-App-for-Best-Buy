@@ -60,7 +60,7 @@ This table lists all the Docker images used in the project, including their name
 | **Service**     | **Docker Image Link**                      |
 |-----------------|--------------------------------------------|
 | Store-Front     | [msalmannaqvi/store-front](https://hub.docker.com/r/msalmannaqvi/store-front) |
-| Store-Admin     | [msalmannaqvi/store-front](https://hub.docker.com/r/msalmannaqvi/store-front) |
+| Store-Admin     | [msalmannaqvi/store-front](https://hub.docker.com/repository/docker/msalmannaqvi/store-admin) |
 | Order-Service   | [msalmannaqvi/order-service](https://hub.docker.com/r/msalmannaqvi/order-service) |
 | Product-Service | [msalmannaqvi/product-service](https://hub.docker.com/r/msalmannaqvi/product-service) |
 | Make-Line-Service | [msalmannaqvi/make-line-service](https://hub.docker.com/r/msalmannaqvi/make-line-service) |
