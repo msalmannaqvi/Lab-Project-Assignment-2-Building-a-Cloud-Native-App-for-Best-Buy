@@ -1,36 +1,24 @@
-# Algonquin Pet Store (On Steroids)
-Welcome to the Algonquin Pet Store (On Steroids) application.
+Best Buy Cloud-Native Application - Lab Project Assignment 2
+Welcome to the Best Buy Cloud-Native Application, a lab project designed to explore and deploy a realistic cloud-native microservices architecture. This application demonstrates the use of containerized microservices deployed in a Kubernetes cluster, leveraging modern technologies and practices such as event-driven design, polyglot architecture, and open-source back-end services like RabbitMQ and MongoDB.
 
-This sample demo app consists of a group of containerized microservices that can be easily deployed into a Kubernetes cluster. This is meant to show a realistic scenario using a polyglot architecture, event-driven design, and common open source back-end services (eg - RabbitMQ, MongoDB). The application also leverages OpenAI's models to generate product descriptions and images. This can be done using either [Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/overview) or [OpenAI](https://openai.com/).
+The application also incorporates OpenAI's models for generating product descriptions and images. These can be powered by either Azure OpenAI or OpenAI.
 
-This application is inspired by Azure Kubernetes Service (AKS) quickstart demo [Azure Kubernetes Service (AKS) Docs](https://learn.microsoft.com/en-us/azure/aks/).
+Note:
+This project serves as an educational tool to understand cloud-native application design. It is not intended for production use but to demonstrate a realistic application running in Kubernetes.
 
-> [!NOTE]
-> This is not meant to be an example of perfect code to be used in production, but more about showing a realistic application running in kubernetes. 
+Architecture
+The project includes the following services:
 
-## Architecture
-
-The application has the following services: 
-
-| Service | Description | Github Repo |
-| --- | --- | --- |
-| `store-front` | Web app for customers to place orders (Vue.js) | [store-front-L8](https://github.com/ramymohamed10/store-front-L8) |
-| `store-admin` | Web app used by store employees to view orders in queue and manage products (Vue.js) | [store-admin-L8](https://github.com/ramymohamed10/store-admin-L8) |
-| `order-service` | This service is used for placing orders (Javascript) | [order-service-L8](https://github.com/ramymohamed10/order-service-L8) |
-| `product-service` | This service is used to perform CRUD operations on products (Rust) | [product-service-L8](https://github.com/ramymohamed10/product-service-L8) |
-| `makeline-service` | This service handles processing orders from the queue and completing them (Golang) | [makeline-service-L8](https://github.com/ramymohamed10/makeline-service-L8) |
-| `ai-service` | Optional service for adding generative text and graphics creation (Python) | [ai-service-L8](https://github.com/ramymohamed10/ai-service-L8) |
-| `rabbitmq` | RabbitMQ for an order queue | [rabbitmq](https://github.com/docker-library/rabbitmq) |
-| `mongodb` | MongoDB instance for persisted data | [mongodb](https://github.com/docker-library/mongo) |
-| `virtual-customer` | Simulates order creation on a scheduled basis (Rust) | [virtual-customer-L8](https://github.com/ramymohamed10/virtual-customer-L8) |
-| `virtual-worker` | Simulates order completion on a scheduled basis (Rust) | [virtual-worker-L8](https://github.com/ramymohamed10/virtual-worker-L8) |
-
-
-![Logical Application Architecture Diagram](assets/Algonquin%20Pet%20Store%20On%20Steroids.png)
-
-## Run the app on Azure Kubernetes Service (AKS)
-
-You can use the kubernetes YAML files provided in the [Deployment Files](./Deployment%20Files/) folder to deploy the app to an AKS cluster.
-
-
-
+Service	Description	GitHub Repo
+store-front	Web application for customers to browse and place orders (Vue.js).	store-front-L8
+store-admin	Web application for employees to manage products and orders (Vue.js).	store-admin-L8
+order-service	Microservice for managing order placements (JavaScript).	order-service-L8
+product-service	Microservice for product CRUD operations (Rust).	product-service-L8
+makeline-service	Microservice for processing and completing orders from the queue (Go).	makeline-service-L8
+ai-service	Optional service for generating text and images using OpenAI (Python).	ai-service-L8
+rabbitmq	RabbitMQ message broker for handling the order queue.	rabbitmq
+mongodb	MongoDB instance for persistent storage.	mongodb
+virtual-customer	Service for simulating customer order placement (Rust).	virtual-customer-L8
+virtual-worker	Service for simulating order processing and completion (Rust).	virtual-worker-L8
+Application Diagram
+Below is the logical architecture of the application:
